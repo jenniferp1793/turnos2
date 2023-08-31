@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Turnos</title>
+</head>
+
+<body>
+    <h1>Gestión de Turnos</h1>
+    <div class="container">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" />
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" />
+        <button id="agregar">Agregar Turno</button>
+
+        <div id="escritorios">
+            <h2>Escritorios</h2>
+            <button class="escritorio-btn" data-escritorio="1">Escritorio 1</button>
+            <button class="escritorio-btn" data-escritorio="2">Escritorio 2</button>
+            <button class="escritorio-btn" data-escritorio="3">Escritorio 3</button>
+        </div>
+        <div id="escritorio">
+            <h2>Escritorio</h2>
+            <button id="tomar-turno">Tomar Turno</button>
+            <ul id="escritorio-lista"></ul>
+        </div>
+    </div>
+    <script src="models/turno.js"></script>
+    <script src="controllers/turno.js"></script>
+    <script src="views/turno.js"></script>
+    <script>
+        const model = new TurnoModel();
+        const controller = new TurnoController(model);
+        const view = new TurnoView(controller);
+    </script>
+</body>
+
+</html>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        padding: 20px;
+        background-color: #f8f8f8;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+        color: #333;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        color: #555;
+    }
+
+    input[type="text"],
+    input[type="date"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f8f8f8;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #222;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+        color: #555;
+    }
+</style>
